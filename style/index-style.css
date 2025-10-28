@@ -415,3 +415,44 @@ footer{ padding:40px 0; background:#080808; color:var(--muted) }
 /* Scroll reveal / fade utility */
 [data-sr]{ opacity:0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
 .sr-visible{ opacity:1 !important; transform:none !important; }
+
+/* 🔘 Botón adaptable para cualquier sección */
+.btn-whatsapp {
+  display: inline-block;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.9rem 1.6rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.btn-center {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #20ba5a, #0e765f);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
+}
+
+/* Versión responsive: centrado si va dentro de contenedores estrechos */
+.btn-whatsapp {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .btn-whatsapp {
+    display: block;
+    width: fit-content;
+    margin: 1.5rem auto;
+    font-size: 1rem;
+  }
+}

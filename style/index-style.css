@@ -52,6 +52,14 @@ body{
   transition: all .25s ease;
 }
 
+.site-header img.logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  z-index: 1000;
+}
+
 .site-header.scrolled{
   padding:10px 30px;
   background: rgba(10,10,10,0.75);

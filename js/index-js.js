@@ -101,29 +101,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ========= NUEVO: Tarjetas expandibles con animación =========
+  // ========= Tarjetas expandibles con animación (VERSIÓN ACTUALIZADA) =========
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
-    const content = card.querySelector('p, form, div');
-    if (content) content.style.transition = 'all 0.4s ease';
+    const contents = card.querySelectorAll('p, form, div');
+    contents.forEach(c => {
+      c.style.transition = 'all 0.4s ease';
+      c.style.overflow = 'hidden';
+      c.style.maxHeight = 'none'; // Para asegurar que se vea bien al inicio
+      c.style.opacity = 1;
+    });
 
     card.addEventListener('click', () => {
       const isExpanded = card.classList.contains('expanded');
+
+      // Cerrar todas las demás
       cards.forEach(c => {
         c.classList.remove('expanded');
-        const cContent = c.querySelector('p, form, div');
-        if (cContent) {
-          cContent.style.maxHeight = null;
-          cContent.style.opacity = 0;
-        }
+        c.querySelectorAll('p, form, div').forEach(el => {
+          el.style.maxHeight = null;
+          el.style.opacity = 0;
+        });
       });
 
+      // Expandir la seleccionada
       if (!isExpanded) {
         card.classList.add('expanded');
-        if (content) {
-          content.style.maxHeight = content.scrollHeight + 'px';
-          content.style.opacity = 1;
-        }
+        contents.forEach(el => {
+          el.style.maxHeight = el.scrollHeight + 'px';
+          el.style.opacity = 1;
+        });
       }
     });
   });

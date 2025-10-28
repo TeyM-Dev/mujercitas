@@ -443,6 +443,34 @@ footer{ padding:40px 0; background:#080808; color:var(--muted) }
   box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
 }
 
+/* Animación sutil de pulso brillante */
+.pulse {
+  animation: pulseGlow 2.8s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3), 0 0 20px rgba(37, 211, 102, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6), 0 0 40px rgba(37, 211, 102, 0.4);
+  }
+}
+
+.btn-center {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .btn-whatsapp {
+    display: block;
+    width: fit-content;
+    margin: 1.5rem auto;
+    font-size: 1rem;
+  }
+}
+
 /* Versión responsive: centrado si va dentro de contenedores estrechos */
 .btn-whatsapp {
   text-align: center;
